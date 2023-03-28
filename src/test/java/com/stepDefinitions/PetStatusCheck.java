@@ -63,6 +63,15 @@ public class PetStatusCheck {
 
         Assert.assertEquals(200, response.statusCode());
         System.out.println("response.statusCode() = " + response.statusCode());
+        //check if the response type is json
+        Assert.assertEquals("application/json", response.contentType());
+        //check the response type of the "Transfer-Encoding" is "chunked"
+        Assert.assertEquals("chunked", response.header("Transfer-Encoding"));
+        //check the response type of the "Connection" is "keep-alive"
+        Assert.assertEquals("keep-alive", response.header("Connection"));
+        //check if date appeared as header
+        response.headers().hasHeaderWithName("date");
+
         response.prettyPrint();
     }
 
@@ -82,6 +91,15 @@ public class PetStatusCheck {
 
         Assert.assertEquals(200, response.statusCode());
         System.out.println("response.statusCode() = " + response.statusCode());
+        //check if the response type is json
+        Assert.assertEquals("application/json", response.contentType());
+        //check the response type of the "Transfer-Encoding" is "chunked"
+        Assert.assertEquals("chunked", response.header("Transfer-Encoding"));
+        //check the response type of the "Connection" is "keep-alive"
+        Assert.assertEquals("keep-alive", response.header("Connection"));
+        //check if date appeared as header
+        response.headers().hasHeaderWithName("date");
+
         response.prettyPrint();
     }
 }
